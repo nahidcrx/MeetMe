@@ -14,5 +14,10 @@ namespace MeetMe.Data
 
         }
         public DbSet<AppUser> Users { get; set; }
+
+        internal Task<bool> AnyAsync()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
