@@ -1,21 +1,23 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
     <div class="container">
-      <a class="navbar-brand" href="#">Meet Me</a>
+      <a class="navbar-brand" routerLink='/' routerLinkActive='active' >Meet Me</a>
       <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button> -->
       <!-- <div class="collapse navbar-collapse" id="navbarCollapse"> -->
         
-        <ul class="navbar-nav me-auto mb-2 mb-md-0" *ngIf="accountService.currentUser$ | async">
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">Matches</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Lists</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Messages</a>
-          </li>
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <ng-container *ngIf="accountService.currentUser$ | async">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" routerLink='/members' routerLinkActive='active' >Matches</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink='/lists' routerLinkActive='active' >Lists</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink='/messages' routerLinkActive='active' >Messages</a>
+            </li>
+          </ng-container>
         </ul>
 
         <!-- <div clas="dropdown" *ngIf="loggedIn" dropdown>
@@ -27,10 +29,10 @@
           </div>
         </div> -->
 
-        <div class="btn-group" *ngIf="accountService.currentUser$ | async" dropdown>
+        <div class="btn-group" *ngIf="(accountService.currentUser$ | async) as user" dropdown>
           <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
                   aria-controls="dropdown-basic">
-            Welcome <span class="caret"></span>
+            Welcome {{user.username | titlecase}} <span class="caret"></span>
           </button>
           <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu mt-3"
               role="menu" aria-labelledby="button-basic">
@@ -55,7 +57,7 @@
             type="password" 
             placeholder="Password">
 
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+          <button class="btn btn-success my-2 my-sm-0" type="submit">Login</button>
         </form>
       </div>
     <!-- </div> -->
