@@ -1,5 +1,6 @@
 F:\MeetMe_VS\MeetMe\MeetMe\bin\Debug\net5.0\appsettings.Development.json
 F:\MeetMe_VS\MeetMe\MeetMe\bin\Debug\net5.0\appsettings.json
+F:\MeetMe_VS\MeetMe\MeetMe\bin\Debug\net5.0\Data\UserSeedData.json
 F:\MeetMe_VS\MeetMe\MeetMe\bin\Debug\net5.0\MeetMe.exe
 F:\MeetMe_VS\MeetMe\MeetMe\bin\Debug\net5.0\MeetMe.deps.json
 F:\MeetMe_VS\MeetMe\MeetMe\bin\Debug\net5.0\MeetMe.runtimeconfig.json
@@ -60,3 +61,5 @@ F:\MeetMe_VS\MeetMe\MeetMe\obj\Debug\net5.0\MeetMe.dll
 F:\MeetMe_VS\MeetMe\MeetMe\obj\Debug\net5.0\ref\MeetMe.dll
 F:\MeetMe_VS\MeetMe\MeetMe\obj\Debug\net5.0\MeetMe.pdb
 F:\MeetMe_VS\MeetMe\MeetMe\obj\Debug\net5.0\MeetMe.genruntimeconfig.cache
+F:\MeetMe_VS\MeetMe\MeetMe\bin\Debug\net5.0\AutoMapper.dll
+F:\MeetMe_VS\MeetMe\MeetMe\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

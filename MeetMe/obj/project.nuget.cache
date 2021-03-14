@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "eWKh5s+XGAE1jjUnwf75CY49yvrFPur/NHDrZEYsWZgfi7VaHlgBS6Fhdo39FfrJ4BW9CCKYMCB+Gmh3FGhpcQ==",
+  "dgSpecHash": "iQVhPgtEmdVvGm+U1bLAOhVwRDt+pumCWR/iBaYUrGft0zDTzN6Re9kZF4JgCx5IKgOwJhsQIaM/Hxvolzd9vA==",
   "success": true,
   "projectFilePath": "F:\\MeetMe_VS\\MeetMe\\MeetMe\\MeetMe.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\naymul.islam\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
+    "C:\\Users\\naymul.islam\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
     "C:\\Users\\naymul.islam\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\naymul.islam\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.3\\microsoft.aspnetcore.authentication.jwtbearer.5.0.3.nupkg.sha512",
     "C:\\Users\\naymul.islam\\.nuget\\packages\\microsoft.aspnetcore.authentication.openidconnect\\5.0.0\\microsoft.aspnetcore.authentication.openidconnect.5.0.0.nupkg.sha512",
@@ -69,7 +71,7 @@
     "C:\\Users\\naymul.islam\\.nuget\\packages\\system.private.datacontractserialization\\4.3.0\\system.private.datacontractserialization.4.3.0.nupkg.sha512",
     "C:\\Users\\naymul.islam\\.nuget\\packages\\system.private.uri\\4.3.2\\system.private.uri.4.3.2.nupkg.sha512",
     "C:\\Users\\naymul.islam\\.nuget\\packages\\system.reflection\\4.3.0\\system.reflection.4.3.0.nupkg.sha512",
-    "C:\\Users\\naymul.islam\\.nuget\\packages\\system.reflection.emit\\4.3.0\\system.reflection.emit.4.3.0.nupkg.sha512",
+    "C:\\Users\\naymul.islam\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
     "C:\\Users\\naymul.islam\\.nuget\\packages\\system.reflection.emit.ilgeneration\\4.3.0\\system.reflection.emit.ilgeneration.4.3.0.nupkg.sha512",
     "C:\\Users\\naymul.islam\\.nuget\\packages\\system.reflection.emit.lightweight\\4.3.0\\system.reflection.emit.lightweight.4.3.0.nupkg.sha512",
     "C:\\Users\\naymul.islam\\.nuget\\packages\\system.reflection.extensions\\4.3.0\\system.reflection.extensions.4.3.0.nupkg.sha512",
