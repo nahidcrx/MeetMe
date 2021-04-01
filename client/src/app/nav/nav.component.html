@@ -33,7 +33,8 @@
         </div> -->
 
         <div class="btn-group" *ngIf="(accountService.currentUser$ | async) as user" dropdown>
-          <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+          <img src="{{user.photoUrl}}" alt="{{user.username}}">
+          <button id="button-basic ml-2" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
                   aria-controls="dropdown-basic">
             Welcome {{user.username | titlecase}} <span class="caret"></span>
           </button>
