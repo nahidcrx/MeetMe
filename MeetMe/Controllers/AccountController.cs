@@ -1,4 +1,5 @@
-﻿using MeetMe.Data;
+﻿using AutoMapper;
+using MeetMe.Data;
 using MeetMe.DTOs;
 using MeetMe.Entities;
 using MeetMe.Interfaces;
@@ -19,10 +20,13 @@ namespace MeetMe.Controllers
         private readonly DataContext _context;
 
         private readonly ITokenService _tokenService;
-        public AccountController(DataContext context, ITokenService tokenService)
+
+        private readonly IMapper _mapper;
+        public AccountController(DataContext context, ITokenService tokenService, IMapper mapper)
         {
             _tokenService = tokenService;
             _context = context;
+            _mapper = mapper;
         }
 
         [HttpPost("register")]
@@ -31,14 +35,12 @@ namespace MeetMe.Controllers
             if (await UserExist(registerDto.Username))
                 return BadRequest("Username is taken");
 
+            var user = _mapper.Map<AppUser>(registerDto);
             using var hashmac = new HMACSHA512();
 
-            var user = new AppUser
-            {
-                UserName = registerDto.Username.ToLower(),
-                PasswordHash = hashmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
-                PasswordSalt = hashmac.Key
-            };
+            user.UserName = registerDto.Username.ToLower();
+            user.PasswordHash = hashmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password));
+            user.PasswordSalt = hashmac.Key;
 
 
             _context.Users.Add(user);
@@ -48,7 +50,8 @@ namespace MeetMe.Controllers
             {
                 Username = user.UserName,
                 Token = _tokenService.CreateToken(user),
-                PhotoUrl = user.Photos.FirstOrDefault(x => x.IsMain)?.Url
+                //PhotoUrl = user.Photos.FirstOrDefault(x => x.IsMain)?.Url,
+                KnownAs = user.KnownAs
             };
         }
 
@@ -73,7 +76,8 @@ namespace MeetMe.Controllers
             {
                 Username = user.UserName,
                 Token = _tokenService.CreateToken(user),
-                PhotoUrl = user.Photos.FirstOrDefault(x => x.IsMain)?.Url
+                PhotoUrl = user.Photos.FirstOrDefault(x => x.IsMain)?.Url,
+                KnownAs = user.KnownAs
             };
         }
         private async Task<bool> UserExist(string username) 
