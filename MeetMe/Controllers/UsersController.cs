@@ -3,6 +3,7 @@ using MeetMe.Data;
 using MeetMe.DTOs;
 using MeetMe.Entities;
 using MeetMe.Extentions;
+using MeetMe.Helpers;
 using MeetMe.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -31,9 +32,10 @@ namespace MeetMe.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers()
+        public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers([FromQuery]UserParams userParams)
         {
-            var users = await _userRepository.GetMembersAsync();
+            var users = await _userRepository.GetMembersAsync(userParams);
+            Response.AddPaginationHeader(users.CurrentPage, users.PageSize, users.TotalCount, users.TotalPages);
             //var userToReturn = _mapper.Map<IEnumerable<MemberDto>>(users);
             return  Ok(users);
         }
