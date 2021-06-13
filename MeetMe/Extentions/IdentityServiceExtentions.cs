@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using MeetMe.Data;
+using MeetMe.Entities;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
@@ -14,6 +17,16 @@ namespace MeetMe.Extentions
     {
         public static IServiceCollection AddIdentityServices(this IServiceCollection services, IConfiguration config) 
         {
+            services.AddIdentityCore<AppUser>(option =>
+            {
+                option.Password.RequireNonAlphanumeric = false;
+            })
+                .AddRoles<AppRole>()
+                .AddRoleManager<RoleManager<AppRole>>()
+                .AddSignInManager<SignInManager<AppUser>>()
+                .AddRoleValidator<RoleValidator<AppRole>>()
+                .AddEntityFrameworkStores<DataContext>();
+
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options => {
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
@@ -22,6 +35,12 @@ namespace MeetMe.Extentions
                     ValidateIssuer = false,
                     ValidateAudience = false,
                 };
+            });
+
+            services.AddAuthorization( option =>
+            {
+                option.AddPolicy("RequireAdminRole", policy => policy.RequireRole("Admin"));
+                option.AddPolicy("ModeratePhotoRole", policy => policy.RequireRole("Admin", "Moderator"));
             });
             return services;
         }

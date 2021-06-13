@@ -1,5 +1,7 @@
 using MeetMe.Data;
+using MeetMe.Entities;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,8 +25,10 @@ namespace MeetMe
             try 
             {
                 var context = services.GetRequiredService<DataContext>();
+                var userManager = services.GetRequiredService<UserManager<AppUser>>();
+                var rollManager = services.GetRequiredService<RoleManager<AppRole>>();
                 await context.Database.MigrateAsync();
-                await Seed.SeedUsers(context);
+                await Seed.SeedUsers(userManager , rollManager);
             }
             catch (Exception e) 
             {
